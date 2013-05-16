@@ -103,7 +103,7 @@ module ActiveRecord  # :nodoc:
         end
 
 
-        def type_cast(value_, column_)
+        def type_cast(value_, column_, array_member = false)
           if ::RGeo::Feature::Geometry.check_type(value_)
             ::RGeo::WKRep::WKBGenerator.new(:hex_format => true, :type_format => :ewkb, :emit_ewkb_srid => true).generate(value_)
           else
